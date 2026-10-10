@@ -10,15 +10,11 @@ Official project page and preview release.
 
 </div>
 
-## Overview
+## Contributions
 
-BCDiff is a multimodal remote-sensing classification framework that combines text-intent-guided adaptive fusion with bidirectional conditional diffusion. It is designed to promote complementary interaction between heterogeneous modalities while preserving modality-specific information.
-
-The main ideas are:
-
-- a multimodal graph encoder for structured feature extraction;
-- text-intent-guided adaptive fusion for semantic regulation;
-- bidirectional conditional diffusion for cross-modal interaction and refinement.
+- We propose a diffusion-driven bidirectional cross-modal feature fusion framework for multimodal remote sensing land cover classification. Bidirectional conditional diffusion reconstructs each modality under guidance from the other and progressively models intermodal dependencies, improving multimodal fusion and feature discriminability.
+- We propose a text-intent-guided adaptive fusion mechanism. Text priors guide diffusion reconstruction and regulate reconstructed features to reduce noise interference in feature fusion.
+- Experiments are conducted on three real multimodal datasets. These datasets cover different sensor combinations and diverse land cover scenes. Our method outperforms other advanced methods and achieves superior classification performance.
 
 ## Framework
 
@@ -86,8 +82,6 @@ Dataset-level reference configurations are provided for:
 - [Houston 2013](configs/houston.yaml): HSI + LiDAR;
 - [Augsburg](configs/augsburg.yaml): HSI + SAR;
 - [Trento](configs/trento.yaml): HSI + LiDAR.
-
-The paths in these files are placeholders and should be updated for the local dataset layout. The configurations expose dataset and common experimental settings only; method-specific implementation details are not included in this preview release.
 
 ## Release Status
 
