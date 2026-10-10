@@ -12,14 +12,9 @@ dataset:
   auxiliary_path: datasets/Augsburg/SAR.mat
   ground_truth_path: datasets/Augsburg/gt.mat
 
-preprocessing:
-  patch_size: 15
-  pca_components: 32
-  remove_zero_labels: true
-
 experiment:
-  seed: 4
   train_samples_per_class: 50
+  exclude_background: true
   batch_size: 256
   epochs: 200
   backbone_optimizer: Adam

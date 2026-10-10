@@ -12,14 +12,9 @@ dataset:
   auxiliary_path: datasets/Houston_2013/LiDAR.mat
   ground_truth_path: datasets/Houston_2013/gt.mat
 
-preprocessing:
-  patch_size: 15
-  pca_components: 32
-  remove_zero_labels: true
-
 experiment:
-  seed: 4
   train_samples_per_class: 50
+  exclude_background: true
   batch_size: 256
   epochs: 50
   backbone_optimizer: Adam

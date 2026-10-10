@@ -2,7 +2,7 @@
 
 # BCDiff
 
-### Bidirectional Cross-Modal Diffusion with Text Intent Guidance for Remote Sensing Classification
+### Bidirectional Cross-Modal Diffusion Incorporating Text-Intent-Guided Fusion for Multimodal Remote Sensing Classification
 
 Official project page and preview release.
 
@@ -24,7 +24,7 @@ Official project page and preview release.
 
 ## Quantitative Results
 
-The table reports **OA / AA / Kappa (%)** under the experimental protocol used in the paper.
+The table reports **OA (%) / AA (%) / κ (×100)** under the experimental protocol used in the paper.
 
 | Method | Houston 2013 | Augsburg | Trento |
 |:--|:--:|:--:|:--:|
@@ -73,7 +73,7 @@ conda env create -f environment.yml
 conda activate bcdiff
 ```
 
-The environment file records the main software versions used by the project. CUDA and PyTorch builds may be adjusted to match the local hardware.
+The environment file provides a compatible reference setup. CUDA and PyTorch builds may be adjusted to match the local hardware.
 
 ## Reference Configurations
 

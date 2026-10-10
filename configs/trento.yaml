@@ -14,14 +14,9 @@ dataset:
   train_labels_path: datasets/Trento/TRLabel.mat
   test_labels_path: datasets/Trento/TSLabel.mat
 
-preprocessing:
-  patch_size: 15
-  pca_components: 32
-  remove_zero_labels: true
-
 experiment:
-  seed: 4
-  split: disjoint
+  train_samples_per_class: 100
+  exclude_background: true
   batch_size: 256
   epochs: 100
   backbone_optimizer: Adam
