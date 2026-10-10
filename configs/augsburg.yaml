@@ -1,0 +1,37 @@
+# Reference configuration for the Augsburg experiment.
+# Dataset paths are placeholders. Core BCDiff parameters are not included.
+
+dataset:
+  name: Augsburg
+  num_classes: 7
+  primary_modality: HSI
+  auxiliary_modality: SAR
+  hsi_bands: 180
+  auxiliary_bands: 4
+  hsi_path: datasets/Augsburg/HSI.mat
+  auxiliary_path: datasets/Augsburg/SAR.mat
+  ground_truth_path: datasets/Augsburg/gt.mat
+
+preprocessing:
+  patch_size: 15
+  pca_components: 32
+  remove_zero_labels: true
+
+experiment:
+  seed: 4
+  train_samples_per_class: 50
+  batch_size: 256
+  epochs: 200
+  backbone_optimizer: Adam
+  backbone_learning_rate: 0.001
+  text_optimizer: AdamW
+  text_learning_rate: 0.0003
+  weight_decay: 0.001
+  label_smoothing: 0.01
+  scheduler: MultiStepLR
+  scheduler_milestones: [0.5, 0.833333]
+  scheduler_gamma: 0.01
+  model_selection: validation_loss
+
+evaluation:
+  metrics: [OA, AA, Kappa]

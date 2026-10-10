@@ -1,0 +1,39 @@
+# Reference configuration for the Trento experiment.
+# Dataset paths are placeholders. Core BCDiff parameters are not included.
+
+dataset:
+  name: Trento
+  num_classes: 6
+  primary_modality: HSI
+  auxiliary_modality: LiDAR
+  hsi_bands: 63
+  auxiliary_bands: 1
+  hsi_path: datasets/Trento/HSI.mat
+  auxiliary_path: datasets/Trento/LiDAR.mat
+  ground_truth_path: datasets/Trento/gt.mat
+  train_labels_path: datasets/Trento/TRLabel.mat
+  test_labels_path: datasets/Trento/TSLabel.mat
+
+preprocessing:
+  patch_size: 15
+  pca_components: 32
+  remove_zero_labels: true
+
+experiment:
+  seed: 4
+  split: disjoint
+  batch_size: 256
+  epochs: 100
+  backbone_optimizer: Adam
+  backbone_learning_rate: 0.001
+  text_optimizer: AdamW
+  text_learning_rate: 0.0003
+  weight_decay: 0.001
+  label_smoothing: 0.01
+  scheduler: MultiStepLR
+  scheduler_milestones: [0.5, 0.833333]
+  scheduler_gamma: 0.01
+  model_selection: validation_loss
+
+evaluation:
+  metrics: [OA, AA, Kappa]

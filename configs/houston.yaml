@@ -1,0 +1,37 @@
+# Reference configuration for the Houston 2013 experiment.
+# Dataset paths are placeholders. Core BCDiff parameters are not included.
+
+dataset:
+  name: Houston_2013
+  num_classes: 15
+  primary_modality: HSI
+  auxiliary_modality: LiDAR
+  hsi_bands: 144
+  auxiliary_bands: 1
+  hsi_path: datasets/Houston_2013/HSI.mat
+  auxiliary_path: datasets/Houston_2013/LiDAR.mat
+  ground_truth_path: datasets/Houston_2013/gt.mat
+
+preprocessing:
+  patch_size: 15
+  pca_components: 32
+  remove_zero_labels: true
+
+experiment:
+  seed: 4
+  train_samples_per_class: 50
+  batch_size: 256
+  epochs: 50
+  backbone_optimizer: Adam
+  backbone_learning_rate: 0.001
+  text_optimizer: AdamW
+  text_learning_rate: 0.0003
+  weight_decay: 0.001
+  label_smoothing: 0.01
+  scheduler: MultiStepLR
+  scheduler_milestones: [0.5, 0.833333]
+  scheduler_gamma: 0.01
+  model_selection: validation_loss
+
+evaluation:
+  metrics: [OA, AA, Kappa]
